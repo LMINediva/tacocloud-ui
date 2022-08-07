@@ -1,0 +1,20 @@
+.ingredientsblock {
+  text-align: center;
+  width: 100%;
+}
+
+.buttonDiv {
+  text-align: center;
+  width: 100%;
+}
+
+div.ingredientsblock {
+  width: 1000px;
+}
+
+input.nameField {
+  font-size: 16pt;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #003366;
+}

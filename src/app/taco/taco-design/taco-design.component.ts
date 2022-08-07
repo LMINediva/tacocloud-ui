@@ -3,6 +3,7 @@ import {Ingredient} from "../../model/ingredient";
 import {TacoService} from "../../services/taco.service";
 import {Router} from "@angular/router";
 import {CartService} from "../../services/cart.service";
+import {Taco} from "../../model/taco";
 
 @Component({
   selector: 'app-taco-design',
@@ -10,9 +11,10 @@ import {CartService} from "../../services/cart.service";
   styleUrls: ['./taco-design.component.css']
 })
 export class TacoDesignComponent implements OnInit {
+  public taco: Taco;
   public allIngredients: any;
   //饼干类带外皮的
-  public wraps = [];
+  public wraps: Ingredient[] = [];
   //蛋白质
   public proteins: Ingredient[] = [];
   //蔬菜
@@ -24,7 +26,16 @@ export class TacoDesignComponent implements OnInit {
 
   constructor(private tacoService: TacoService,
               private router: Router,
-              private cart: CartService) {
+              private cartService: CartService) {
+    this.initializeTaco();
+  }
+
+  initializeTaco() {
+    this.taco = {
+      name: '',
+      createdAt: new Date(),
+      ingredients: []
+    }
   }
 
   ngOnInit(): void {
@@ -36,10 +47,22 @@ export class TacoDesignComponent implements OnInit {
         this.veggies = this.allIngredients.filter(v => v.type === 'VEGGIES');
         this.cheeses = this.allIngredients.filter(c => c.type === 'CHEESE');
         this.sauces = this.allIngredients.filter(s => s.type === 'SAUCE');
-      })
+      });
   }
 
   updateIngredients(ingredient, event) {
+    if (event.target.checked) {
+      this.taco.ingredients.push(ingredient);
+    } else {
+      this.taco.ingredients.splice(
+        this.taco.ingredients.findIndex(i => i === ingredient), 1);
+    }
+  }
 
+  onSubmit() {
+    this.taco.createdAt = new Date();
+    this.tacoService.createTaco(this.taco)
+      .subscribe(result => this.cartService.addToCart(result));
+    this.router.navigate(['/cart']);
   }
 }
