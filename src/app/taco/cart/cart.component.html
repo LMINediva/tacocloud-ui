@@ -1,0 +1,176 @@
+<cloud-title>订购您的墨西哥煎玉米卷作品</cloud-title>
+<p>
+  你已经制作了令人垂涎的墨西哥煎玉米卷杰作。现在，想象一下这些作品出现在您的家中……
+  或工作中……或无论您身在何处！
+</p>
+<p *ngIf="(cartItems.length === 0)">
+  <b>您的购物车中目前没有墨西哥煎玉米卷。
+    <a routerLink="/design" routerLinkActive="active">立即创建</a>或选择
+    <a routerLink="/recents" routerLinkActive="active">最近创建</a>的墨西哥煎玉米。
+  </b>
+</p>
+
+<div *ngIf="(cartItems.length > 0)">
+  <p>
+    这是你最新的墨西哥煎玉米卷设计。只需说出这个词，
+    我们就会将它们放在高高的云朵上给您！
+  </p>
+  <div class="groupBox groupBoxFull">
+    <div class="groupBoxTitle">这是我的墨西哥煎玉米卷...</div>
+    <div class="groupBoxContent">
+      <table border="1" width="90%">
+        <thead>
+        <tr>
+          <td>数量</td>
+          <td>名字</td>
+          <td>描述</td>
+          <td>价格</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <select [(ngModel)]="item.quantity">
+              <option value="0">移除</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </td>
+          <td>
+            "<span class="caps">{{item.taco.name}}</span>"
+          </td>
+          <td>
+            <ul class="commalist">
+              <li *ngFor="let ingredient of item.taco.ingredients | nonWraps">
+                {{ingredient.name}}
+              </li>
+            </ul>
+            <span *ngIf="(item.taco.ingredients | wraps)?.length! > 0">
+            <span>打包的</span>
+            <ul class="commalist">
+              <li *ngFor="let ingredient of item.taco.ingredients | wraps">
+                {{ingredient.name}}
+              </li>
+            </ul>
+          </span>
+            <span *ngIf="(item.taco.ingredients | wraps)?.length === 0">在碗里的</span>
+          </td>
+          <td align="right">{{4.99 * item.quantity | currency}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="3" align="right">总价：</td>
+          <td align="right">
+            <span>{{cartTotal | currency}}</span>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="groupBox groupBoxHalf">
+      <div class="groupBoxTitle">把它们送到...</div>
+      <div class="groupBoxContent">
+        <label for="deliveryName">姓名：</label>
+        <input type="text" [(ngModel)]="order.deliveryName"
+               name="deliveryName" size="40" id="deliveryName">
+        <br>
+
+        <label for="deliveryStreet">街道地址：</label>
+        <input type="text" [(ngModel)]="order.deliveryStreet"
+               name="deliveryStreet" size="40" id="deliveryStreet">
+        <br>
+
+        <label for="deliveryCity">市，州：</label>
+        <input type="text" [(ngModel)]="order.deliveryCity"
+               name="deliveryCity" size="30" id="deliveryCity">
+
+        <select [(ngModel)]="order.deliveryState" name="deliveryState">
+          <option value="">--</option>
+          <option value="AL">AL</option>
+          <option value="AK">AK</option>
+          <option value="AR">AR</option>
+          <option value="AZ">AZ</option>
+          <option value="CA">CA</option>
+          <option value="CO">CO</option>
+          <option value="CT">CT</option>
+          <option value="DE">DE</option>
+          <option value="FL">FL</option>
+          <option value="GA">GA</option>
+          <option value="HI">HI</option>
+          <option value="IA">IA</option>
+          <option value="ID">ID</option>
+          <option value="IL">IL</option>
+          <option value="IN">IN</option>
+          <option value="KS">KS</option>
+          <option value="KY">KY</option>
+          <option value="LA">LA</option>
+          <option value="MA">MA</option>
+          <option value="MD">MD</option>
+          <option value="ME">ME</option>
+          <option value="MI">MI</option>
+          <option value="MN">MN</option>
+          <option value="MO">MO</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="NC">NC</option>
+          <option value="ND">ND</option>
+          <option value="NE">NE</option>
+          <option value="NH">NH</option>
+          <option value="NJ">NJ</option>
+          <option value="NM">NM</option>
+          <option value="NV">NV</option>
+          <option value="NY">NY</option>
+          <option value="OH">OH</option>
+          <option value="OK">OK</option>
+          <option value="OR">OR</option>
+          <option value="PA">PA</option>
+          <option value="RI">RI</option>
+          <option value="SC">SC</option>
+          <option value="SD">SD</option>
+          <option value="TN">TN</option>
+          <option value="TX">TX</option>
+          <option value="UT">UT</option>
+          <option value="VA">VA</option>
+          <option value="VT">VT</option>
+          <option value="WA">WA</option>
+          <option value="WI">WI</option>
+          <option value="WV">WV</option>
+          <option value="WY">WY</option>
+        </select>
+        <br>
+
+        <label for="deliveryZip">邮政编码：</label>
+        <input type="text" [(ngModel)]="order.deliveryZip"
+               name="deliveryZip">
+      </div>
+    </div>
+
+    <div class="groupBox groupBoxHalf">
+      <div class="groupBoxTitle">以下是我的付款方式...</div>
+      <div class="groupBoxContent">
+        <label for="ccNumber">信用卡#：</label>
+        <input type="text" [(ngModel)]="order.ccNumber"
+               name="ccNumber" id="ccNumber">
+        <br>
+
+        <label for="ccExpiration">有效期 / CVV：</label>
+        <input type="text" [(ngModel)]="order.ccCVV"
+               name="ccCVV" size="4" id="ccExpiration">
+      </div>
+    </div>
+    <br>
+
+    <big-button label="提交订单"></big-button>
+  </form>
+</div>

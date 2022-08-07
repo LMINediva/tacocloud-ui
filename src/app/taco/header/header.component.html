@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="logo">
+    <a routerLink="/home">
+      <img src="assets/TacoCloud.png">
+    </a>
+  </div>
+  <div class="topbar">
+    <div class="topbaritems">
+      <div class="topbaritem">
+        <a routerLink="/design" class="plainlink caps">设计一个墨西哥煎玉米卷</a>
+      </div>
+      <div class="topbaritem">
+        <a href="login" class="plainlink">
+          <img src="assets/down-triangle.png" class="down">
+          <span class="caps small">登录</span>
+          <span class="smaller">或创建账户</span>
+        </a>
+      </div>
+      <div class="topbaritem" id="d1">
+        <a routerLink="/cart" class="plainlink">
+          <img src="assets/cart.png">
+          {{cart.getItemsInCart().length * 4.99 | currency}}
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="bottombar">
+    <div class="bottombaritems">
+      <div class="bottombaritem">
+        <a routerLink="/recents" class="plainlink">最新设计</a>
+      </div>
+      <div class="bottombaritem">
+        <a routerLink="/specials" class="plainlink">特价专区</a>
+      </div>
+      <div class="bottombaritem">
+        <a routerLink="/locations" class="plainlink">地点</a>
+      </div>
+    </div>
+  </div>
+</div>
