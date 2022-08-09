@@ -16,9 +16,10 @@ import {BigButtonComponent} from './taco/big-button/big-button.component';
 import {CartService} from "./services/cart.service";
 import {CartComponent} from './taco/cart/cart.component';
 import {OrderService} from "./services/order.service";
-import { HomeComponent } from './taco/home/home.component';
-import { HeaderComponent } from './taco/header/header.component';
-import { FooterComponent } from './taco/footer/footer.component';
+import {HomeComponent} from './taco/home/home.component';
+import {HeaderComponent} from './taco/header/header.component';
+import {FooterComponent} from './taco/footer/footer.component';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FooterComponent } from './taco/footer/footer.component';
   providers: [
     TacoService,
     CartService,
-    OrderService
+    OrderService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
