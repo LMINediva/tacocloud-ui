@@ -62,7 +62,10 @@ export class TacoDesignComponent implements OnInit {
   onSubmit() {
     this.taco.createdAt = new Date();
     this.tacoService.createTaco(this.taco)
-      .subscribe(result => this.cartService.addToCart(result));
+      // .subscribe(result => this.cartService.addToCart(result));
+      .subscribe(result => {
+        this.cartService.addToCart(result);
+      });
     this.router.navigate(['/cart']);
   }
 }

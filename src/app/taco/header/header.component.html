@@ -19,7 +19,7 @@
       <div class="topbaritem" id="d1">
         <a routerLink="/cart" class="plainlink">
           <img src="assets/cart.png">
-          {{cart.getItemsInCart().length * 4.99 | currency}}
+          {{cart.getCartTotal() * 4.99 | currency}}
         </a>
       </div>
     </div>
