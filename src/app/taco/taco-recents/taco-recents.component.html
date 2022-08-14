@@ -23,6 +23,6 @@
       </div>
       <div *ngIf="(taco.ingredients | wraps)?.length === 0">用碗装的</div>
     </div>
-    <little-button label="订购墨西哥煎饼卷"></little-button>
+    <little-button label="订购墨西哥煎饼卷" (click)="designTaco()"></little-button>
   </div>
 </div>

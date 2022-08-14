@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
       id: 0,
       placeAt: new Date(),
       user: {
-        id: 0,
+        id: 1,
         username: '',
         password: '',
         fullname: '',

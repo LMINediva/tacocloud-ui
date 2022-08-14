@@ -12,7 +12,7 @@ export class WrapsPipe implements PipeTransform {
       if (ingredient.type === 'WRAP') {
         const wrap: Ingredient = {
           id: ingredient.id,
-          name: 'a' + ingredient.name,
+          name: ingredient.name,
           type: ingredient.type
         };
         wraps.push(wrap);

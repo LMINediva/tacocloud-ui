@@ -165,7 +165,8 @@
                name="ccNumber" id="ccNumber">
         <br>
 
-        <label for="ccExpiration">有效期 / CVV：</label>
+        <label for="ccExpiration">有效期(MM/YY格式) / CVV(信用卡三位数字验证码)：</label>
+        <input type="text" [(ngModel)]="order.ccExpiration" name="ccExpiration">
         <input type="text" [(ngModel)]="order.ccCVV"
                name="ccCVV" size="4" id="ccExpiration">
       </div>
