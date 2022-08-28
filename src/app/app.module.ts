@@ -20,6 +20,9 @@ import {HomeComponent} from './taco/home/home.component';
 import {HeaderComponent} from './taco/header/header.component';
 import {FooterComponent} from './taco/footer/footer.component';
 import {CookieService} from "ngx-cookie-service";
+import { LoginComponent } from './taco/login/login.component';
+import { LocationsComponent } from './taco/locations/locations.component';
+import { SpecialsComponent } from './taco/specials/specials.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import {CookieService} from "ngx-cookie-service";
     CartComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    LocationsComponent,
+    SpecialsComponent
   ],
   imports: [
     BrowserModule,
