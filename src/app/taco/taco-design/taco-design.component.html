@@ -1,43 +1,45 @@
 <cloud-title>设计你的墨西哥煎玉米卷杰作</cloud-title>
-<p>
+<p class="fs-4">
   我们提供一系列新鲜食材……您提供灵感！选择将组合在一起作为炸玉米饼工艺的最高成就的组件。
 </p>
 <form (ngSubmit)="onSubmit()">
-  <div class="ingredientsblock">
-    <group-box title="选择包装方式">
-      <span *ngFor="let wrap of wraps">
-        <input type="checkbox" (change)="updateIngredients(wrap, $event)"
+  <div class="container text-center">
+    <div class="ingredientsblock row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">
+      <group-box title="选择包装方式">
+      <span class="form-check" *ngFor="let wrap of wraps">
+        <input class="form-check-input" type="checkbox" (change)="updateIngredients(wrap, $event)"
                name="ingredients" value="{{wrap.id}}">{{wrap.name}}<br>
       </span>
-    </group-box>
-    <group-box title="选择蛋白质">
-      <span *ngFor="let protein of proteins">
-        <input type="checkbox" (change)="updateIngredients(protein, $event)"
+      </group-box>
+      <group-box title="选择蛋白质">
+      <span class="form-check" *ngFor="let protein of proteins">
+        <input class="form-check-input" type="checkbox" (change)="updateIngredients(protein, $event)"
                name="ingredients" value="{{protein.id}}">{{protein.name}}<br>
       </span>
-    </group-box>
-    <group-box title="选择奶酪">
-      <span *ngFor="let cheese of cheeses">
-        <input type="checkbox" (change)="updateIngredients(cheese, $event)"
+      </group-box>
+      <group-box title="选择奶酪">
+      <span class="form-check" *ngFor="let cheese of cheeses">
+        <input class="form-check-input" type="checkbox" (change)="updateIngredients(cheese, $event)"
                name="ingredients" value="{{cheese.id}}">{{cheese.name}}<br>
       </span>
-    </group-box>
-    <group-box title="选择蔬菜">
-      <span *ngFor="let veggie of veggies">
-        <input type="checkbox" (change)="updateIngredients(veggie, $event)"
+      </group-box>
+      <group-box title="选择蔬菜">
+      <span class="form-check" *ngFor="let veggie of veggies">
+        <input class="form-check-input" type="checkbox" (change)="updateIngredients(veggie, $event)"
                name="ingredients" value="{{veggie.id}}">{{veggie.name}}<br>
       </span>
-    </group-box>
-    <group-box title="选择酱汁">
-      <span *ngFor="let sauce of sauces">
-        <input type="checkbox" (change)="updateIngredients(sauce, $event)"
+      </group-box>
+      <group-box title="选择酱汁">
+      <span class="form-check" *ngFor="let sauce of sauces">
+        <input class="form-check-input" type="checkbox" (change)="updateIngredients(sauce, $event)"
                name="ingredients" value="{{sauce.id}}">{{sauce.name}}<br>
       </span>
-    </group-box>
-    <group-box title="给你的墨西哥煎玉米卷命名">
-      我的墨西哥煎玉米卷被命名为：<br>
-      "<input type="text" [(ngModel)]="taco.name" name="name" class="nameField">！
-    </group-box>
+      </group-box>
+      <group-box title="给你的墨西哥煎玉米卷命名">
+        我的墨西哥煎玉米卷被命名为：<br>
+        "<input type="text" [(ngModel)]="taco.name" name="name" class="nameField">！
+      </group-box>
+    </div>
   </div>
   <div class="buttonDiv">
     <big-button label="创建"></big-button>

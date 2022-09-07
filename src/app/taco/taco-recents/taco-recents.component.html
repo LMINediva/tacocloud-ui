@@ -1,8 +1,34 @@
 <cloud-title>欣赏一些最近创作的墨西哥卷饼杰作</cloud-title>
-<p>
+<p class="fs-4">
   即使是最伟大的艺术家有时也需要从他人的作品中获得灵感。这里有一些最近制作的炸玉米饼，由像你一样的炸玉米饼艺术家设计……
 </p>
-<div class="recentsblock">
+<div class="container text-center">
+  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">
+    <div class="tacoblock col" *ngFor="let taco of tacos$ | async">
+      <div class="tacoName">
+        <span class="small">名称：</span><br>"{{taco.name}}"
+      </div>
+      <div class="tacoDesc">
+        <ul class="commalist">
+          <li *ngFor="let ingredient of taco.ingredients | nonWraps">
+            {{ingredient.name}}
+          </li>
+        </ul>
+        <div *ngIf="(taco.ingredients | wraps).length! > 0">
+          <span>打包的</span>
+          <ul class="commalist">
+            <li *ngFor="let ingredient of taco.ingredients | wraps">
+              {{ingredient.name}}
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="(taco.ingredients | wraps)?.length === 0">用碗装的</div>
+      </div>
+      <little-button label="订购墨西哥煎饼卷" (click)="designTaco()"></little-button>
+    </div>
+  </div>
+</div>
+<!--<div class="recentsblock">
   <div class="tacoblock" *ngFor="let taco of tacos$ | async">
     <div class="tacoName">
       <span class="small">名称：</span><br>"{{taco.name}}"
@@ -25,4 +51,4 @@
     </div>
     <little-button label="订购墨西哥煎饼卷" (click)="designTaco()"></little-button>
   </div>
-</div>
+</div>-->
