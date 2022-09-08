@@ -3,7 +3,7 @@
     <a class="navbar-brand" routerLink="/home">
       <img id="tacoImg" class="img-fluid" src="assets/TacoCloud.png" alt="墨西哥煎玉米饼卷图">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    <button id="collapse-button" class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -11,25 +11,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+        <li class="nav-item" (click)="toggleElement($event)" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
           <a class="nav-link active" aria-current="page" routerLink="/recents">最新设计</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a class="nav-link" routerLink="/specials">特价专区</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a class="nav-link" routerLink="/locations">地点</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a class="nav-link" routerLink="/design">设计一个墨西哥煎玉米卷</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a routerLink="/login" class="nav-link">
             <img src="assets/down-triangle.png" alt="下拉" class="down">
             <span>登录或创建账户</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <a routerLink="/cart" class="nav-link">
             <img src="assets/cart.png" alt="购物车">
             {{cart.getCartTotal() * 4.99 | currency}}
