@@ -13,10 +13,6 @@ export class HeaderComponent implements OnInit {
     this.cart = cart;
   }
 
-  toggleElement(event) {
-    console.log(event);
-  }
-
   ngOnInit(): void {
     /*$(document).ready(function () {
       $("nav").find("li").on("click", "a", function () {
