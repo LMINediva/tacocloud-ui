@@ -1,16 +1,16 @@
 <cloud-title>订购您的墨西哥煎玉米卷作品</cloud-title>
-<p>
+<p class="fs-4">
   你已经制作了令人垂涎的墨西哥煎玉米卷杰作。现在，想象一下这些作品出现在您的家中……
   或工作中……或无论您身在何处！
 </p>
-<p *ngIf="(cartItems.length === 0)">
+<p *ngIf="(cartItems.length === 0)" class="fs-4">
   <b>您的购物车中目前没有墨西哥煎玉米卷。
     <a routerLink="/design" routerLinkActive="active">立即创建</a>或选择
     <a routerLink="/recents" routerLinkActive="active">最近创建</a>的墨西哥煎玉米。
   </b>
 </p>
 
-<div *ngIf="(cartItems.length > 0)">
+<div *ngIf="(cartItems.length > 0)" class="fs-4">
   <p>
     这是你最新的墨西哥煎玉米卷设计。只需说出这个词，
     我们就会将它们放在高高的云朵上给您！
