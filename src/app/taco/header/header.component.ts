@@ -8,17 +8,14 @@ import {CartService} from "../../services/cart.service";
 })
 export class HeaderComponent implements OnInit {
   public cart: CartService;
+  public isMenuCollapsed: boolean;
 
   constructor(cart: CartService) {
     this.cart = cart;
+    this.isMenuCollapsed = true;
   }
 
   ngOnInit(): void {
-    /*$(document).ready(function () {
-      $("nav").find("li").on("click", "a", function () {
-        $('#navbarSupportedContent').collapse('hide');
-      });
-    });*/
   }
 
 }

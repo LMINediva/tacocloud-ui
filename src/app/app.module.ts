@@ -23,6 +23,7 @@ import {CookieService} from "ngx-cookie-service";
 import {LoginComponent} from './taco/login/login.component';
 import {LocationsComponent} from './taco/locations/locations.component';
 import {SpecialsComponent} from './taco/specials/specials.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {SpecialsComponent} from './taco/specials/specials.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     TacoService,
