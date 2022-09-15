@@ -42,10 +42,10 @@ label {
   font-size: 14pt;
 }
 
-input {
+/*input {
   font-size: 14pt;
   color: #003366;
-}
+}*/
 
 select {
   font-size: 14pt;
@@ -53,23 +53,16 @@ select {
   background-color: white;
 }
 
-div.groupBoxHalf {
-  width: 450px;
-}
-
 div.groupBoxFull {
-  width: 938px;
+  width: 100%;
 }
 
 div.groupBox {
-  display: inline-block;
-  vertical-align: top;
   background-image: url("../../../assets/taco-icon.png");
   background-repeat: no-repeat;
   background-color: rgba(118, 214, 255, 0.25);
   margin: 10px;
   border-radius: 10px;
-  text-align: right;
   padding: 0 10px 10px 0;
   height: 100%;
   color: #003366;
@@ -86,5 +79,16 @@ div.groupBoxTitle {
 
 div.groupBoxContent {
   padding: 20px;
-  text-align: left;
+}
+
+.distance {
+  margin-top: 2em;
+}
+
+.buttonDiv {
+  text-align: end;
+}
+
+.expiration {
+  display: inline-block;
 }

@@ -5,56 +5,58 @@
 </p>
 <p *ngIf="(cartItems.length === 0)" class="fs-4">
   <b>您的购物车中目前没有墨西哥煎玉米卷。
-    <a routerLink="/design" routerLinkActive="active">立即创建</a>或选择
-    <a routerLink="/recents" routerLinkActive="active">最近创建</a>的墨西哥煎玉米。
+    <a class="link-primary" routerLink="/design" routerLinkActive="active">立即创建</a>或选择
+    <a class="link-primary" routerLink="/recents" routerLinkActive="active">最近创建</a>的墨西哥煎玉米。
   </b>
 </p>
 
-<div *ngIf="(cartItems.length > 0)" class="fs-4">
+<div *ngIf="(cartItems.length > 0)" class="fs-4 container">
   <p>
     这是你最新的墨西哥煎玉米卷设计。只需说出这个词，
     我们就会将它们放在高高的云朵上给您！
   </p>
-  <div class="groupBox groupBoxFull">
-    <div class="groupBoxTitle">这是我的墨西哥煎玉米卷...</div>
-    <div class="groupBoxContent">
-      <table border="1" width="90%">
-        <thead>
-        <tr>
-          <td>数量</td>
-          <td>名字</td>
-          <td>描述</td>
-          <td>价格</td>
-        </tr>
-        </thead>
-        <tbody>
-        <!--<tr *ngFor="let item of cartItems">-->
-        <tr *ngFor="let item of carts">
-          <td>
-            <select [(ngModel)]="item.quantity">
-              <option value="0">移除</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </td>
-          <td>
-            "<span class="caps">{{item.taco.name}}</span>"
-          </td>
-          <td>
-            <ul class="commalist">
-              <li *ngFor="let ingredient of item.taco.ingredients | nonWraps">
-                {{ingredient.name}}
-              </li>
-            </ul>
-            <span *ngIf="(item.taco.ingredients | wraps)?.length! > 0">
+  <div class="row distance">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+      <div class="groupBox">
+        <div class="groupBoxTitle">这是我的墨西哥煎玉米卷...</div>
+        <div class="groupBoxContent table-responsive">
+          <table class="table table-bordered border-primary text-center">
+            <thead>
+            <tr>
+              <td>数量</td>
+              <td>名字</td>
+              <td>描述</td>
+              <td>价格</td>
+            </tr>
+            </thead>
+            <tbody>
+            <!--<tr *ngFor="let item of cartItems">-->
+            <tr *ngFor="let item of carts">
+              <td>
+                <select [(ngModel)]="item.quantity" class="form-select">
+                  <option value="0">移除</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </td>
+              <td>
+                "<span class="caps text-primary">{{item.taco.name}}</span>"
+              </td>
+              <td>
+                <ul class="commalist">
+                  <li *ngFor="let ingredient of item.taco.ingredients | nonWraps">
+                    {{ingredient.name}}
+                  </li>
+                </ul>
+                <span *ngIf="(item.taco.ingredients | wraps)?.length! > 0">
             <span>打包的</span>
             <ul class="commalist">
               <li *ngFor="let ingredient of item.taco.ingredients | wraps">
@@ -62,117 +64,138 @@
               </li>
             </ul>
           </span>
-            <span *ngIf="(item.taco.ingredients | wraps)?.length === 0">在碗里的</span>
-          </td>
-          <td align="right">{{4.99 * item.quantity | currency}}</td>
-        </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-          <td colspan="3" align="right">总价：</td>
-          <td align="right">
-            <span>{{cartTotal | currency}}</span>
-          </td>
-        </tr>
-        </tfoot>
-      </table>
+                <span *ngIf="(item.taco.ingredients | wraps)?.length === 0">在碗里的</span>
+              </td>
+              <td>{{4.99 * item.quantity | currency}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <td colspan="3">总价：</td>
+              <td>
+                <span class="text-danger">{{cartTotal | currency}}</span>
+              </td>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
   <form (ngSubmit)="onSubmit()">
-    <div class="groupBox groupBoxHalf">
-      <div class="groupBoxTitle">把它们送到...</div>
-      <div class="groupBoxContent">
-        <label for="deliveryName">姓名：</label>
-        <input type="text" [(ngModel)]="order.deliveryName"
-               name="deliveryName" size="40" id="deliveryName">
-        <br>
+    <div class="row distance">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="groupBox">
+          <div class="groupBoxTitle">把它们送到...</div>
+          <div class="groupBoxContent">
+            <label for="deliveryName">姓名：</label>
+            <input type="text" [(ngModel)]="order.deliveryName"
+                   name="deliveryName" size="40" id="deliveryName"
+                   class="form-control">
+            <br>
 
-        <label for="deliveryStreet">街道地址：</label>
-        <input type="text" [(ngModel)]="order.deliveryStreet"
-               name="deliveryStreet" size="40" id="deliveryStreet">
-        <br>
+            <label for="deliveryStreet">街道地址：</label>
+            <input type="text" [(ngModel)]="order.deliveryStreet"
+                   name="deliveryStreet" size="40" id="deliveryStreet"
+                   class="form-control">
+            <br>
 
-        <label for="deliveryCity">市，州：</label>
-        <input type="text" [(ngModel)]="order.deliveryCity"
-               name="deliveryCity" size="30" id="deliveryCity">
+            <label for="deliveryCity">市，州：</label>
+            <input type="text" [(ngModel)]="order.deliveryCity"
+                   name="deliveryCity" size="30" id="deliveryCity"
+                   class="form-control">
 
-        <select [(ngModel)]="order.deliveryState" name="deliveryState">
-          <option value="">--</option>
-          <option value="AL">AL</option>
-          <option value="AK">AK</option>
-          <option value="AR">AR</option>
-          <option value="AZ">AZ</option>
-          <option value="CA">CA</option>
-          <option value="CO">CO</option>
-          <option value="CT">CT</option>
-          <option value="DE">DE</option>
-          <option value="FL">FL</option>
-          <option value="GA">GA</option>
-          <option value="HI">HI</option>
-          <option value="IA">IA</option>
-          <option value="ID">ID</option>
-          <option value="IL">IL</option>
-          <option value="IN">IN</option>
-          <option value="KS">KS</option>
-          <option value="KY">KY</option>
-          <option value="LA">LA</option>
-          <option value="MA">MA</option>
-          <option value="MD">MD</option>
-          <option value="ME">ME</option>
-          <option value="MI">MI</option>
-          <option value="MN">MN</option>
-          <option value="MO">MO</option>
-          <option value="MS">MS</option>
-          <option value="MT">MT</option>
-          <option value="NC">NC</option>
-          <option value="ND">ND</option>
-          <option value="NE">NE</option>
-          <option value="NH">NH</option>
-          <option value="NJ">NJ</option>
-          <option value="NM">NM</option>
-          <option value="NV">NV</option>
-          <option value="NY">NY</option>
-          <option value="OH">OH</option>
-          <option value="OK">OK</option>
-          <option value="OR">OR</option>
-          <option value="PA">PA</option>
-          <option value="RI">RI</option>
-          <option value="SC">SC</option>
-          <option value="SD">SD</option>
-          <option value="TN">TN</option>
-          <option value="TX">TX</option>
-          <option value="UT">UT</option>
-          <option value="VA">VA</option>
-          <option value="VT">VT</option>
-          <option value="WA">WA</option>
-          <option value="WI">WI</option>
-          <option value="WV">WV</option>
-          <option value="WY">WY</option>
-        </select>
-        <br>
+            <select [(ngModel)]="order.deliveryState" name="deliveryState" class="form-select">
+              <option value="">--</option>
+              <option value="AL">AL</option>
+              <option value="AK">AK</option>
+              <option value="AR">AR</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="IA">IA</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY</option>
+              <option value="LA">LA</option>
+              <option value="MA">MA</option>
+              <option value="MD">MD</option>
+              <option value="ME">ME</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MO">MO</option>
+              <option value="MS">MS</option>
+              <option value="MT">MT</option>
+              <option value="NC">NC</option>
+              <option value="ND">ND</option>
+              <option value="NE">NE</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NV">NV</option>
+              <option value="NY">NY</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VA">VA</option>
+              <option value="VT">VT</option>
+              <option value="WA">WA</option>
+              <option value="WI">WI</option>
+              <option value="WV">WV</option>
+              <option value="WY">WY</option>
+            </select>
+            <br>
 
-        <label for="deliveryZip">邮政编码：</label>
-        <input type="text" [(ngModel)]="order.deliveryZip"
-               name="deliveryZip" id="deliveryZip">
+            <label for="deliveryZip">邮政编码：</label>
+            <input type="text" [(ngModel)]="order.deliveryZip"
+                   name="deliveryZip" id="deliveryZip"
+                   class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="groupBox groupBoxHalf">
+          <div class="groupBoxTitle">以下是我的付款方式...</div>
+          <div class="groupBoxContent">
+            <label for="ccNumber">信用卡#：</label>
+            <input type="text" [(ngModel)]="order.ccNumber"
+                   name="ccNumber" id="ccNumber"
+                   class="form-control">
+            <br>
+
+            <label for="ccExpiration">有效期(MM/YY格式) / CVV(信用卡三位数字验证码)：</label>
+            <div class="row">
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <input type="text" [(ngModel)]="order.ccExpiration" name="ccExpiration" class="form-control">
+              </div>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                <input type="text" [(ngModel)]="order.ccCVV"
+                       name="ccCVV" size="4" id="ccExpiration"
+                       class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="groupBox groupBoxHalf">
-      <div class="groupBoxTitle">以下是我的付款方式...</div>
-      <div class="groupBoxContent">
-        <label for="ccNumber">信用卡#：</label>
-        <input type="text" [(ngModel)]="order.ccNumber"
-               name="ccNumber" id="ccNumber">
-        <br>
-
-        <label for="ccExpiration">有效期(MM/YY格式) / CVV(信用卡三位数字验证码)：</label>
-        <input type="text" [(ngModel)]="order.ccExpiration" name="ccExpiration">
-        <input type="text" [(ngModel)]="order.ccCVV"
-               name="ccCVV" size="4" id="ccExpiration">
+    <div class="row distance">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 buttonDiv">
+        <big-button label="提交订单"></big-button>
       </div>
     </div>
-    <br>
-
-    <big-button label="提交订单"></big-button>
   </form>
 </div>

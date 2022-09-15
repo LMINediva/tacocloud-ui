@@ -4,7 +4,8 @@
 </p>
 <form (ngSubmit)="onSubmit()">
   <div class="container text-center">
-    <div class="ingredientsblock row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2">
+    <div
+      class="row row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2 justify-content-evenly gy-4">
       <group-box title="选择包装方式">
       <span class="form-check" *ngFor="let wrap of wraps">
         <input class="form-check-input" type="checkbox" (change)="updateIngredients(wrap, $event)"
@@ -40,8 +41,10 @@
         "<input type="text" [(ngModel)]="taco.name" name="name" class="form-control">"！
       </group-box>
     </div>
-  </div>
-  <div class="buttonDiv">
-    <big-button label="创建"></big-button>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-end gy-5">
+        <big-button label="创建"></big-button>
+      </div>
+    </div>
   </div>
 </form>

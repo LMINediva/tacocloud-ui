@@ -24,6 +24,7 @@ import {LoginComponent} from './taco/login/login.component';
 import {LocationsComponent} from './taco/locations/locations.component';
 import {SpecialsComponent} from './taco/specials/specials.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    LazyLoadImageModule
   ],
   providers: [
     TacoService,
