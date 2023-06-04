@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class TacoRecentsComponent implements OnInit {
 
-  public tacos$: Observable<Taco[]>;
+  public tacos$: Observable<Taco[]> = new Observable<Taco[]>();
 
   constructor(private tacoService: TacoService,
               private router: Router) {

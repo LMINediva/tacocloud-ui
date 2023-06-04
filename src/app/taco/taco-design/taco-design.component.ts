@@ -11,7 +11,11 @@ import {Taco} from "../../model/taco";
   styleUrls: ['./taco-design.component.css']
 })
 export class TacoDesignComponent implements OnInit {
-  public taco: Taco;
+  public taco: Taco = new class implements Taco {
+    createdAt: Date = new Date();
+    ingredients: Ingredient[] = [];
+    name: string = "";
+  };
   public allIngredients: any;
   //饼干类带外皮的
   public wraps: Ingredient[] = [];

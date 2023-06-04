@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class GroupBoxComponent implements OnInit {
 
   @Input()
-  public title: string;
+  public title: string = "";
 
   constructor() {
   }

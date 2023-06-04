@@ -6,14 +6,10 @@ describe('LittleButtonComponent', () => {
   let component: LittleButtonComponent;
   let fixture: ComponentFixture<LittleButtonComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LittleButtonComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LittleButtonComponent]
+    });
     fixture = TestBed.createComponent(LittleButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

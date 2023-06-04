@@ -6,14 +6,10 @@ describe('CloudTitleComponent', () => {
   let component: CloudTitleComponent;
   let fixture: ComponentFixture<CloudTitleComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ CloudTitleComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [CloudTitleComponent]
+    });
     fixture = TestBed.createComponent(CloudTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

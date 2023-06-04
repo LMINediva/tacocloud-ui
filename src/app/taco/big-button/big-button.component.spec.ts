@@ -6,14 +6,10 @@ describe('BigButtonComponent', () => {
   let component: BigButtonComponent;
   let fixture: ComponentFixture<BigButtonComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ BigButtonComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [BigButtonComponent]
+    });
     fixture = TestBed.createComponent(BigButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

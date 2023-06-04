@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class BigButtonComponent implements OnInit {
 
   @Input()
-  public label: string;
+  public label: string = "";
 
   constructor() {
   }

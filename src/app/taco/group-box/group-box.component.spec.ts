@@ -6,14 +6,10 @@ describe('GroupBoxComponent', () => {
   let component: GroupBoxComponent;
   let fixture: ComponentFixture<GroupBoxComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ GroupBoxComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [GroupBoxComponent]
+    });
     fixture = TestBed.createComponent(GroupBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

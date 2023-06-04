@@ -6,14 +6,10 @@ describe('TacoRecentsComponent', () => {
   let component: TacoRecentsComponent;
   let fixture: ComponentFixture<TacoRecentsComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TacoRecentsComponent ]
-    })
-    .compileComponents();
-  });
-
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [TacoRecentsComponent]
+    });
     fixture = TestBed.createComponent(TacoRecentsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

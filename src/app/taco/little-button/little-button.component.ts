@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class LittleButtonComponent implements OnInit {
 
   @Input()
-  label: string;
+  label: string = "";
 
   constructor() {
   }

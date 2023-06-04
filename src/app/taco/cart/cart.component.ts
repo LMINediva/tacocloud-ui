@@ -14,7 +14,7 @@ import {Taco} from "../../model/taco";
 })
 export class CartComponent implements OnInit {
 
-  public order: Order;
+  public order: Order = new Order();
   public subscription: Subscription;
   // public data: any;
   public carts: Cart[];
