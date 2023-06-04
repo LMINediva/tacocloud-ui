@@ -15,9 +15,9 @@
 
 ### 1、先将本项目下载到本地磁盘。
 ### 2、使用npm命令安装好Angular CLI框架，本项目使用16.0.3版本。
-### 3、运行cmd命令进入下载好的项目的文件夹，运行<font color="#660000">npm install --legacy-peer-deps</font>命令，安装好依赖的包。
-### 4、运行<font color="#660000">ng build --prod</font>命令编译项目。
-### 5、编译好项目后，运行<font color="#660000">ng serve --host 0.0.0.0 --disable-host-check --proxy-config=proxy.conf.json --configuration production --port 80</font>命令运行项目。
+### 3、运行cmd命令进入下载好的项目的文件夹，运行`npm install --legacy-peer-deps`命令，安装好依赖的包。
+### 4、运行`ng build --prod`命令编译项目。
+### 5、编译好项目后，运行`ng serve --host 0.0.0.0 --disable-host-check --proxy-config=proxy.conf.json --configuration production --port 80`命令运行项目。
 ### 6、在浏览器中输入[项目链接](http://localhost)即可访问项目主页。
 
 ## 许可
