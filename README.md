@@ -2,7 +2,7 @@
 
 ## 简介
 
-**煎饼订购网站前端**是一个基于AngularJS框架开源的处理煎饼订购相关业务信息的界面，具备用户注册、登录、订购煎饼、查看最近订购等功能。**煎饼订购网站前端**中的图片由[**<<Spring实战第5版>>**](https://www.manning.com/books/spring-in-action-fifth-edition){target="_blank"}一书提供，组织架构参考[**<<AngularJS即学即用>>**](https://www.oreilly.com/library/view/angular-up-and/9781491999820/){target="_blank"}一书，开发语言为TypeScript和CSS，代码遵循Apache v2 License开源协议。**本软件主要作为学习和交流使用。**
+**煎饼订购网站前端**是一个基于AngularJS框架开源的处理煎饼订购相关业务信息的界面，具备用户注册、登录、订购煎饼、查看最近订购等功能。**煎饼订购网站前端**中的图片由[**<<Spring实战第5版>>**](https://www.manning.com/books/spring-in-action-fifth-edition)一书提供，组织架构参考[**<<AngularJS即学即用>>**](https://www.oreilly.com/library/view/angular-up-and/9781491999820/)一书，开发语言为TypeScript和CSS，代码遵循Apache v2 License开源协议。**本软件主要作为学习和交流使用。**
 
 ## 开发环境
 
